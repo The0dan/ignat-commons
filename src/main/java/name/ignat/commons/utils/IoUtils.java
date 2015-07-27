@@ -17,7 +17,8 @@ import name.ignat.commons.exception.UnexpectedException;
 public final class IoUtils
 {
 	/**
-	 * 
+	 * Standardizes the way an application retrieves a resource file on the classpath by using Spring's {@link
+	 * ClassPathResource}.  This version returns it as an {@code InputStream}.
 	 */
 	public static InputStream getClassPathResource(String classPathResourcePath)
 	{
@@ -32,7 +33,8 @@ public final class IoUtils
 	}
 
 	/**
-	 * 
+	 * Standardizes the way an application retrieves a resource file on the classpath by using Spring's {@link
+	 * ClassPathResource}.  This version returns it as a {@code File}.
 	 */
 	public static File getClassPathResourceFile(String classPathResourcePath)
 	{
@@ -47,7 +49,8 @@ public final class IoUtils
 	}
 
 	/**
-	 * 
+	 * Standardizes the way an application retrieves a resource file on the classpath by using Spring's {@link
+	 * ClassPathResource}.  This version returns its contents as a {@code String}.
 	 */
 	public static String getClassPathResourceAsString(String classPathResourcePath)
 	{
