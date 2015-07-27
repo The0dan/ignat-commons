@@ -9,7 +9,7 @@ import java.util.Collection;
  * 
  * @author Dan Ignat
  */
-public class CollectionUtils
+public final class CollectionUtils
 {
     /**
      * Returns {@code true} iff at least one of {@code items} is in {@code collection}.
@@ -19,4 +19,6 @@ public class CollectionUtils
 	{
 		return org.apache.commons.collections.CollectionUtils.containsAny(collection, asList(items));
 	}
+
+	private CollectionUtils() { }
 }
