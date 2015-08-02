@@ -18,7 +18,7 @@ public final class IoUtils
 {
 	/**
 	 * Standardizes the way an application retrieves a resource file on the classpath by using Spring's {@link
-	 * ClassPathResource}.  This version returns it as an {@code InputStream}.
+	 * ClassPathResource}, returning it as an {@code InputStream}.
 	 */
 	public static InputStream getClassPathResource(String classPathResourcePath)
 	{
@@ -34,7 +34,7 @@ public final class IoUtils
 
 	/**
 	 * Standardizes the way an application retrieves a resource file on the classpath by using Spring's {@link
-	 * ClassPathResource}.  This version returns it as a {@code File}.
+	 * ClassPathResource}, returning it as a {@code File}.
 	 */
 	public static File getClassPathResourceFile(String classPathResourcePath)
 	{
@@ -50,7 +50,7 @@ public final class IoUtils
 
 	/**
 	 * Standardizes the way an application retrieves a resource file on the classpath by using Spring's {@link
-	 * ClassPathResource}.  This version returns its contents as a {@code String}.
+	 * ClassPathResource}, returning its contents as a {@code String}.
 	 */
 	public static String getClassPathResourceAsString(String classPathResourcePath)
 	{

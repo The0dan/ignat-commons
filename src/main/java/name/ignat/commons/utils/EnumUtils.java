@@ -27,8 +27,7 @@ public final class EnumUtils
 	}
 
 	/**
-	 * Returns {@code true} if any of the {@code candidates} have an {@link Enum#name()} equal to {@code name}; {@code
-	 * false} otherwise.
+	 * Returns {@code true} iff any of the {@code candidates} have an {@link Enum#name()} equal to {@code name}.
 	 */
 	@SafeVarargs
 	public static <E extends Enum<E>> boolean equalsAny(String name, E... candidates)
