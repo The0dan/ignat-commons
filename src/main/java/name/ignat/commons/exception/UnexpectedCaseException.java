@@ -1,11 +1,15 @@
 package name.ignat.commons.exception;
 
 /**
+ * <p>
  * Signifies that an unexpected case has occurred in a conditional statement.  Should be used mainly in {@code else} and
  * {@code default} blocks to show the unexpected {@code value} that was encountered.
- * <p />
+ * </p>
+ * 
+ * <p>
  * Examples:
- * <p />
+ * </p>
+ * 
  * <pre>
  * if (value == 1)
  * {
@@ -19,9 +23,7 @@ package name.ignat.commons.exception;
  * {
  *     throw new UnexpectedCaseException(value);
  * }
- * </pre>
- * <p />
- * <pre>
+ * 
  * switch (value)
  * {
  *     case 1:
@@ -34,9 +36,11 @@ package name.ignat.commons.exception;
  *         throw new UnexpectedCaseException(value);
  * }
  * </pre>
- * <p />
+ * 
+ * <p>
  * This pattern makes your conditional statements <i>fail-fast</i> if the universe of values grows in the future and you
  * forget to update all of your code to handle the new values.
+ * </p>
  * 
  * @author Dan Ignat
  */
