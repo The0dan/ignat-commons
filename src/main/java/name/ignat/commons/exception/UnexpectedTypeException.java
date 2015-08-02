@@ -1,11 +1,15 @@
 package name.ignat.commons.exception;
 
 /**
+ * <p>
  * Signifies that an unexpected type (class) has been encountered in a conditional statement.  Should be used mainly in
  * {@code else} blocks to show the unexpected {@code value.getClass()} that was encountered.
- * <p />
+ * </p>
+ * 
+ * <p>
  * Example:
- * <p />
+ * </p>
+ * 
  * <pre>
  * if (shape instanceof Circle)
  * {
@@ -20,12 +24,16 @@ package name.ignat.commons.exception;
  *     throw new UnexpectedTypeException(shape);
  * }
  * </pre>
- * <p />
+ * 
+ * <p>
  * Good object-oriented design should minimize the need for such type-based conditional statements, but once in a while
  * they are necessary.
- * <p />
+ * </p>
+ * 
+ * <p>
  * This pattern makes your conditional statements <i>fail-fast</i> if the universe of values grows in the future and you
  * forget to update all of your code to handle the new values.
+ * </p>
  * 
  * @author Dan Ignat
  */
