@@ -1,12 +1,15 @@
 # Ignat Commons
 
-*Ignat Commons* is some common code that I've found myself reusing many times over the years:
+*Ignat Commons* is common code that I've found myself reusing many times over the years:
 
 1. `UnexpectedException`
-   - Three exception classes useful for:
-     - wrapping checked exceptions that you cannot meaningfully handle
-     - making your `if` and `switch` statements fail-fast when the universe of values that they operate on grows in the future
-2. `TypeSafeChain`
+   - Wrap checked exceptions that you cannot meaningfully handle
+2. `UnexpectedCaseException`, `UnexpectedTypeException`
+   - Give your conditional statements useful default behavior
+     - Make them *fail-fast* if you forget to update them after their universe of values grows
+3. `TypeSafeChain`
    - Type-safe extensions of *Apache Commons Chain* classes that enforce context compatibility
-3. Utility classes
-   - A few small utility classes that enhance *Apache Commons Lang* utility classes by providing conveniences like varargs parameters and standardized retrieval of classpath resource files
+4. Utilities
+   - Enhance *Apache Commons* and *Spring Framework* utility classes with conveniences like:
+     - varargs parameters
+     - standardized retrieval of classpath resource files
