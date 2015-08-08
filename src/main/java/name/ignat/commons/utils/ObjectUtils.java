@@ -8,8 +8,8 @@ package name.ignat.commons.utils;
 public final class ObjectUtils
 {
 	/**
-	 * Returns {@code true} if any of the {@code candidates} are equal to {@code object} via {@link
-	 * Object#equals(Object)}; {@code false} otherwise.
+	 * Returns {@code true} <em>iff</em> any of the {@code candidates} are equal to {@code object} via {@link
+	 * Object#equals(Object)}.
 	 */
 	@SafeVarargs
 	public static <T> boolean equalsAny(T object, T... candidates)
