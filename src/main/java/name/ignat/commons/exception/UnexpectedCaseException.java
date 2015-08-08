@@ -38,7 +38,7 @@ package name.ignat.commons.exception;
  * </pre>
  * 
  * <p>
- * This pattern makes your conditional statements <i>fail-fast</i> if the universe of values grows in the future and you
+ * This pattern makes your conditional statements <em>fail-fast</em> if the universe of values grows in the future and you
  * forget to update all of your code to handle the new values.
  * </p>
  * 
