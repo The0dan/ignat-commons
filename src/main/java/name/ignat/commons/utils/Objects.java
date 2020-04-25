@@ -5,7 +5,7 @@ package name.ignat.commons.utils;
  * 
  * @author Dan Ignat
  */
-public final class ObjectUtils
+public final class Objects
 {
 	/**
 	 * Returns {@code true} <em>iff</em> any of the {@code candidates} are equal to {@code object} via {@link
@@ -30,5 +30,5 @@ public final class ObjectUtils
 		return false;
 	}
 
-	private ObjectUtils() { }
+	private Objects() { }
 }
