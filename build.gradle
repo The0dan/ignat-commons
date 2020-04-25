@@ -1,6 +1,8 @@
 plugins
 {
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
 
 dependencies
@@ -9,6 +11,7 @@ dependencies
     // this library can be used on as many projects as possible with their own varying version requirements
     implementation     'com.google.guava:guava:[r03,)'
     implementation     'org.apache.commons:commons-lang3:[3.0,)'
+    implementation     'org.apache.commons:commons-collections4:[4.0,)'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
     testImplementation 'org.hamcrest:hamcrest:2.2'
@@ -17,4 +20,92 @@ dependencies
 repositories
 {
     jcenter()
+}
+
+java
+{
+    withJavadocJar()
+    withSourcesJar()
+}
+
+javadoc
+{
+    if (JavaVersion.current().isJava9Compatible())
+    {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+publishing
+{
+    publications
+    {
+        mavenJava(MavenPublication)
+        {
+            from components.java
+            versionMapping
+            {
+                usage('java-api')
+                {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime')
+                {
+                    fromResolutionResult()
+                }
+            }
+            pom
+            {
+                name          = 'Ignat Commons'
+                description   = 'Common code that I\'ve found myself reusing many times over the years'
+                url           = 'https://github.com/dan-ignat/ignat-commons'
+                inceptionYear = '2015'
+                scm
+                {
+                    connection          = 'scm:git:git://github.com/dan-ignat/ignat-commons.git'
+                    developerConnection = 'scm:git:ssh://github.com/dan-ignat/ignat-commons.git'
+                    url                 = 'https://github.com/dan-ignat/ignat-commons'
+                }
+                licenses
+                {
+                    license
+                    {
+                        name         = 'Apache License, Version 2.0'
+                        url          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                }
+                developers
+                {
+                    developer
+                    {
+                        id         = 'dan-ignat'
+                        name       = 'Dan Ignat'
+                        email      = 'dan{at}ignat.name'
+                        url        = 'https://github.com/dan-ignat'
+                        timezone   = 'America/Chicago'
+                        roles      = ['developer', 'architect', 'owner']
+                        properties = [
+                            picUrl: 'https://avatars.githubusercontent.com/u/5143789'
+                        ]
+                    }
+                }
+            }
+        }
+    }
+    repositories
+    {
+        maven
+        {
+            // Change URLs to point to your repo, e.g. http://my.org/repo
+            def releasesRepoUrl  = "$buildDir/repo/releases"
+            def snapshotsRepoUrl = "$buildDir/repo/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+signing
+{
+    sign publishing.publications.mavenJava
 }
