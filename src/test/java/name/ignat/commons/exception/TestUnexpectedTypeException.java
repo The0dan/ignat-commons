@@ -1,22 +1,20 @@
 package name.ignat.commons.exception;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasProperty;
-import static org.junit.Assert.assertThat;
 
-import org.junit.Test;
-
-import name.ignat.commons.exception.UnexpectedTypeException;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Dan Ignat
  */
-public class UnexpectedTypeExceptionTest
+public class TestUnexpectedTypeException
 {
 	@Test
 	public void messageConstructor()
 	{
-		UnexpectedTypeException e = new UnexpectedTypeException("Test");
+		UnexpectedTypeException e = new UnexpectedTypeException("abc");
 
 		assertThat(e, hasProperty("message", equalTo("Unexpected type: class java.lang.String")));
 	}
