@@ -16,7 +16,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 /**
  * @author Dan Ignat
  */
-public class TestNumbers
+public class TestBigDecimals
 {
     private static Stream<Arguments> normalizeScaleCases()
 	{
@@ -71,7 +71,7 @@ public class TestNumbers
 	{
 		BigDecimal input = new BigDecimal(inputString);
 
-		BigDecimal actualOutput = Numbers.normalizeScale(input);
+		BigDecimal actualOutput = BigDecimals.normalizeScale(input);
 
 		BigDecimal expectedOutput = new BigDecimal(expectedOutputString);
 
@@ -86,7 +86,7 @@ public class TestNumbers
 	@Test
 	public void normalizeScale_null()
 	{
-		BigDecimal actualOutput = Numbers.normalizeScale(null);
+		BigDecimal actualOutput = BigDecimals.normalizeScale(null);
 
 		assertThat(actualOutput, nullValue());
 	}

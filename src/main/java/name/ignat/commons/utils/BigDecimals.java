@@ -10,7 +10,7 @@ import java.math.RoundingMode;
  * 
  * @author Dan Ignat
  */
-public final class Numbers
+public final class BigDecimals
 {
 	/**
 	 * Normalizes the scale of {@code bigDecimal} to 2 decimal places and {@link RoundingMode#HALF_UP}.  All {@link
@@ -21,5 +21,5 @@ public final class Numbers
 		return bigDecimal == null ? null : bigDecimal.setScale(2, HALF_UP);
 	}
 
-	private Numbers() { }
+	private BigDecimals() { }
 }
