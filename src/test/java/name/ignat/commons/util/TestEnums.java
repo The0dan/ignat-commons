@@ -1,8 +1,8 @@
-package name.ignat.commons.utils;
+package name.ignat.commons.util;
 
-import static name.ignat.commons.utils.TestEnums.RGBColor.BLUE;
-import static name.ignat.commons.utils.TestEnums.RGBColor.GREEN;
-import static name.ignat.commons.utils.TestEnums.RGBColor.RED;
+import static name.ignat.commons.util.TestEnums.RGBColor.BLUE;
+import static name.ignat.commons.util.TestEnums.RGBColor.GREEN;
+import static name.ignat.commons.util.TestEnums.RGBColor.RED;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -12,6 +12,8 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import name.ignat.commons.util.Enums;
 
 /**
  * @author Dan Ignat

@@ -1,4 +1,4 @@
-package name.ignat.commons.utils;
+package name.ignat.commons.util;
 
 import static java.math.RoundingMode.HALF_UP;
 

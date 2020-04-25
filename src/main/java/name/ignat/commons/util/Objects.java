@@ -1,4 +1,4 @@
-package name.ignat.commons.utils;
+package name.ignat.commons.util;
 
 /**
  * Object-related utility methods.

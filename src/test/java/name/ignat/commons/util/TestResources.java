@@ -1,4 +1,4 @@
-package name.ignat.commons.utils;
+package name.ignat.commons.util;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.junit.jupiter.api.Test;
+
+import name.ignat.commons.util.Resources;
 
 /**
  * @author Dan Ignat

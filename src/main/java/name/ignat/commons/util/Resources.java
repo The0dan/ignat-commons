@@ -1,4 +1,4 @@
-package name.ignat.commons.utils;
+package name.ignat.commons.util;
 
 import static com.google.common.io.Resources.getResource;
 import static java.nio.charset.Charset.defaultCharset;
