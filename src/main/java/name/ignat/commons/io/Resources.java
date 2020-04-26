@@ -1,4 +1,4 @@
-package name.ignat.commons.util;
+package name.ignat.commons.io;
 
 import static com.google.common.io.Resources.getResource;
 import static java.nio.charset.Charset.defaultCharset;
@@ -19,7 +19,7 @@ public final class Resources
 {
 	/**
 	 * Standardizes the way an application retrieves a resource file on the classpath by using Guava's {@link
-	 * Resources#getResource(String)}, returning it as an {@code InputStream}.
+	 * com.google.common.io.Resources#getResource(String)}, returning it as an {@code InputStream}.
 	 */
 	public static InputStream getClassPathResource(String classPathResourcePath)
 	{
@@ -35,7 +35,7 @@ public final class Resources
 
 	/**
 	 * Standardizes the way an application retrieves a resource file on the classpath by using Guava's {@link
-     * Resources#getResource(String)}, returning it as a {@code File}.
+     * com.google.common.io.Resources#getResource(String)}, returning it as a {@code File}.
 	 */
 	public static File getClassPathResourceFile(String classPathResourcePath)
 	{
@@ -51,7 +51,7 @@ public final class Resources
 
 	/**
 	 * Standardizes the way an application retrieves a resource file on the classpath by using Guava's {@link
-     * Resources#getResource(String)}, returning its contents as a {@code String}.
+     * com.google.common.io.Resources#getResource(String)}, returning its contents as a {@code String}.
 	 */
 	public static String getClassPathResourceAsString(String classPathResourcePath)
 	{

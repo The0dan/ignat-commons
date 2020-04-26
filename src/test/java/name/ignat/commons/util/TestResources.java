@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 import org.junit.jupiter.api.Test;
 
-import name.ignat.commons.util.Resources;
+import name.ignat.commons.io.Resources;
 
 /**
  * @author Dan Ignat

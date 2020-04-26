@@ -1,4 +1,4 @@
-package name.ignat.commons.util;
+package name.ignat.commons.lang;
 
 /**
  * Enum-related utility methods.

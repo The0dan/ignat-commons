@@ -1,4 +1,4 @@
-package name.ignat.commons.util;
+package name.ignat.commons.lang;
 
 import static java.math.RoundingMode.HALF_UP;
 
@@ -21,5 +21,10 @@ public final class BigDecimals
 		return bigDecimal == null ? null : bigDecimal.setScale(2, HALF_UP);
 	}
 
-	private BigDecimals() { }
+    public static String toPlainString(BigDecimal bd)
+    {
+        return bd.stripTrailingZeros().toPlainString();
+    }
+
+    private BigDecimals() { }
 }
