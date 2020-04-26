@@ -1,6 +1,5 @@
 package name.ignat.commons.io;
 
-import static com.google.common.io.Resources.getResource;
 import static java.nio.charset.Charset.defaultCharset;
 
 import java.io.File;
@@ -11,21 +10,39 @@ import java.net.URISyntaxException;
 import name.ignat.commons.exception.UnexpectedException;
 
 /**
- * Resource-related utility methods.
+ * Utility methods for resources.
+ * <p>
+ * Resources are non-class files on the class path, which may be either directly on the file system or within a JAR.
+ * They are generally limited to reading, as writing may result in writing to an unexpected destination, due to the
+ * nature of class paths and how they blur physical file system locations.
+ * <p>
+ * Standardizes the way an application retrieves a resource, as there are several options:
+ * <ul>
+ * <li>{@link Class#getResource(String)}</li>
+ * <li>{@link com.google.common.io.Resources#getResource(String)}</li>
+ * <li>{@link org.springframework.core.io.ClassPathResource}</li>
+ * </ul>
+ * Since Ignat Commons already depends on Google Guava, it uses that option, so as not to introduce a more heavyweight
+ * Spring dependency that not all clients may want.
  * 
  * @author Dan Ignat
  */
 public final class Resources
 {
 	/**
-	 * Standardizes the way an application retrieves a resource file on the classpath by using Guava's {@link
-	 * com.google.common.io.Resources#getResource(String)}, returning it as an {@code InputStream}.
+	 * Opens a resource for reading.
+	 * 
+	 * @param resourcePath the path to the resource, relative to the class path
+	 * @return an {@link InputStream} from which the resource may be read
+     * 
+     * @apiNote Use this instead of {@link #getResourceCautiously(String)} when you don't expect an exception and have
+     * no handling code, which is the majority of cases.
 	 */
-	public static InputStream getClassPathResource(String classPathResourcePath)
+	public static InputStream getResource(String resourcePath)
 	{
 		try
 		{
-			return getResource(classPathResourcePath).openStream();
+			return getResourceCautiously(resourcePath);
 		}
 		catch (IOException e)
 		{
@@ -33,15 +50,33 @@ public final class Resources
 		}
 	}
 
-	/**
-	 * Standardizes the way an application retrieves a resource file on the classpath by using Guava's {@link
-     * com.google.common.io.Resources#getResource(String)}, returning it as a {@code File}.
-	 */
-	public static File getClassPathResourceFile(String classPathResourcePath)
+    /**
+     * Opens a resource for reading, expecting a possible exception.
+     * 
+     * @param resourcePath the path to the resource, relative to the class path
+     * @return an {@link InputStream} from which the resource may be read
+     * 
+     * @apiNote Use this instead of {@link #getResource(String)} when you expect and want to handle an exception.
+     */
+    public static InputStream getResourceCautiously(String resourcePath) throws IOException
+    {
+        return com.google.common.io.Resources.getResource(resourcePath).openStream();
+    }
+
+    /**
+     * Gets a {@code File} corresponding to a resource.
+     * 
+     * @param resourcePath the path to the resource, relative to the class path
+     * @return a {@link File} corresponding to the resource
+     * 
+     * @apiNote Use this instead of {@link #getResourceFileCautiously(String)} when you don't expect an exception and
+     * have no handling code, which is the majority of cases.
+     */
+	public static File getResourceFile(String resourcePath)
 	{
 		try
 		{
-			return new File(getResource(classPathResourcePath).toURI());
+			return getResourceFileCautiously(resourcePath);
 		}
 		catch (URISyntaxException e)
 		{
@@ -49,21 +84,53 @@ public final class Resources
 		}
 	}
 
-	/**
-	 * Standardizes the way an application retrieves a resource file on the classpath by using Guava's {@link
-     * com.google.common.io.Resources#getResource(String)}, returning its contents as a {@code String}.
-	 */
-	public static String getClassPathResourceAsString(String classPathResourcePath)
+    /**
+     * Gets a {@code File} corresponding to a resource, expecting a possible exception.
+     * 
+     * @param resourcePath the path to the resource, relative to the class path
+     * @return a {@link File} corresponding to the resource
+     * 
+     * @apiNote Use this instead of {@link #getResourceFile(String)} when you expect and want to handle an exception.
+     */
+    public static File getResourceFileCautiously(String resourcePath) throws URISyntaxException
+    {
+        return new File(com.google.common.io.Resources.getResource(resourcePath).toURI());
+    }
+
+    /**
+     * Gets the text contents of a resource.
+     * 
+     * @param resourcePath the path to the resource, relative to the class path
+     * @return the text contents of the resource as a {@link String}
+     * 
+     * @apiNote Use this instead of {@link #getResourceTextCautiously(String)} when you don't expect an exception and
+     * have no handling code, which is the majority of cases.
+     */
+	public static String getResourceText(String resourcePath)
 	{
 		try
 		{
-		    return com.google.common.io.Resources.toString(getResource(classPathResourcePath), defaultCharset());
+		    return getResourceTextCautiously(resourcePath);
 		}
 		catch (IOException e)
 		{
 			throw new UnexpectedException(e);
 		}
 	}
+
+    /**
+     * Gets the text contents of a resource, expecting a possible exception.
+     * 
+     * @param resourcePath the path to the resource, relative to the class path
+     * @return the text contents of the resource as a {@link String}
+     * 
+     * @apiNote Use this instead of {@link #getResourceText(String)} when you expect and want to handle an exception.
+     */
+    public static String getResourceTextCautiously(String resourcePath) throws IOException
+    {
+        return com.google.common.io.Resources.toString(
+            com.google.common.io.Resources.getResource(resourcePath), defaultCharset());
+    }
 
 	private Resources() { }
 }
