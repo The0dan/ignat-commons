@@ -38,16 +38,17 @@ package name.ignat.commons.exception;
  * </pre>
  * 
  * <p>
- * This pattern makes your conditional statements <em>fail-fast</em> if the universe of values grows in the future and you
- * forget to update all of your code to handle the new values.
+ * This pattern makes your conditional statements <em>fail-fast</em> if the universe of values grows in the future and
+ * you forget to update all of your code to handle the new values.
  * </p>
  * 
  * @author Dan Ignat
  */
-@SuppressWarnings("serial")
 public class UnexpectedCaseException extends UnexpectedException
 {
-	public UnexpectedCaseException(Object value)
+    private static final long serialVersionUID = 321045026068030184L;
+
+    public UnexpectedCaseException(Object value)
 	{
 		super("Unexpected case: " + value);
 	}

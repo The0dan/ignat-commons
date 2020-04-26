@@ -31,16 +31,17 @@ package name.ignat.commons.exception;
  * </p>
  * 
  * <p>
- * This pattern makes your conditional statements <em>fail-fast</em> if the universe of values grows in the future and you
- * forget to update all of your code to handle the new values.
+ * This pattern makes your conditional statements <em>fail-fast</em> if the universe of values grows in the future and
+ * you forget to update all of your code to handle the new values.
  * </p>
  * 
  * @author Dan Ignat
  */
-@SuppressWarnings("serial")
 public class UnexpectedTypeException extends UnexpectedException
 {
-	public UnexpectedTypeException(Object value)
+    private static final long serialVersionUID = 6695237171051092747L;
+
+    public UnexpectedTypeException(Object value)
 	{
 		super("Unexpected type: " + value.getClass());
 	}

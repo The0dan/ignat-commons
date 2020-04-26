@@ -57,10 +57,11 @@ import org.apache.commons.lang3.exception.ContextedRuntimeException;
  * 
  * @author Dan Ignat
  */
-@SuppressWarnings("serial")
 public class UnexpectedException extends ContextedRuntimeException
 {
-	public UnexpectedException()
+    private static final long serialVersionUID = -5807058261990164239L;
+
+    public UnexpectedException()
 	{
 		super();
 	}
