@@ -11,19 +11,17 @@ import java.io.InputStream;
 
 import org.junit.jupiter.api.Test;
 
-import name.ignat.commons.io.Resources;
-
 /**
  * @author Dan Ignat
  */
 public class TestResources
 {
 	@Test
-	public void getClassPathResource() throws IOException
+	public void getResource() throws IOException
 	{
 		int fileSize = 0;
 
-		try (InputStream fileIn = Resources.getClassPathResource("utils/SomeFile.zip"))
+		try (InputStream fileIn = Resources.getResource("utils/SomeFile.zip"))
 		{
 			for (int b = fileIn.read(); b != -1; b = fileIn.read())
 			{
@@ -35,45 +33,45 @@ public class TestResources
 	}
 
 	@Test
-	public void getClassPathResource_notFound() throws IOException
+	public void getResource_notFound() throws IOException
 	{
 	    Exception exception = assertThrows(IllegalArgumentException.class,
-	        () -> Resources.getClassPathResource("utils/SomeOtherFile.zip"));
+	        () -> Resources.getResource("utils/SomeOtherFile.zip"));
 
 	    assertThat(exception.getMessage(), is("resource utils/SomeOtherFile.zip not found."));
 	}
 
 	@Test
-	public void getClassPathResourceFile() throws IOException
+	public void getResourceFile() throws IOException
 	{
-		File file = Resources.getClassPathResourceFile("utils/SomeFile.zip");
+		File file = Resources.getResourceFile("utils/SomeFile.zip");
 
 		assertThat(file.isFile(), equalTo(true));
 		assertThat(file.getName(), equalTo("SomeFile.zip"));
 	}
 
 	@Test
-	public void getClassPathResourceFile_notFound() throws IOException
+	public void getResourceFile_notFound() throws IOException
 	{
 	    Exception exception = assertThrows(IllegalArgumentException.class,
-            () -> Resources.getClassPathResourceFile("utils/SomeOtherFile.zip"));
+            () -> Resources.getResourceFile("utils/SomeOtherFile.zip"));
 
         assertThat(exception.getMessage(), is("resource utils/SomeOtherFile.zip not found."));
 	}
 
 	@Test
-	public void getClassPathResourceAsString() throws IOException
+	public void getResourceText() throws IOException
 	{
-		String contents = Resources.getClassPathResourceAsString("utils/SomeFile.txt");
+		String contents = Resources.getResourceText("utils/SomeFile.txt");
 
 		assertThat(contents, equalTo("Hello, world!"));
 	}
 
 	@Test
-	public void getClassPathResourceAsString_notFound() throws IOException
+	public void getResourceText_notFound() throws IOException
 	{
 	    Exception exception = assertThrows(IllegalArgumentException.class,
-            () -> Resources.getClassPathResourceAsString("utils/SomeOtherFile.txt"));
+            () -> Resources.getResourceText("utils/SomeOtherFile.txt"));
 
         assertThat(exception.getMessage(), is("resource utils/SomeOtherFile.txt not found."));
 	}

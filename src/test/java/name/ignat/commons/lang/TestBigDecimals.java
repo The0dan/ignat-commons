@@ -13,14 +13,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import name.ignat.commons.lang.BigDecimals;
-
 /**
  * @author Dan Ignat
  */
 public class TestBigDecimals
 {
-    private static Stream<Arguments> normalizeScaleCases()
+    private static Stream<Arguments> normalizeCurrencyCases()
 	{
         return Stream.of(
 
@@ -68,12 +66,12 @@ public class TestBigDecimals
 	}
 
     @ParameterizedTest
-    @MethodSource("normalizeScaleCases")
-    public void normalizeScale(String inputString, String expectedOutputString)
+    @MethodSource("normalizeCurrencyCases")
+    public void normalizeCurrency(String inputString, String expectedOutputString)
 	{
 		BigDecimal input = new BigDecimal(inputString);
 
-		BigDecimal actualOutput = BigDecimals.normalizeScale(input);
+		BigDecimal actualOutput = BigDecimals.normalizeCurrency(input);
 
 		BigDecimal expectedOutput = new BigDecimal(expectedOutputString);
 
@@ -86,9 +84,9 @@ public class TestBigDecimals
 	}
 
 	@Test
-	public void normalizeScale_null()
+	public void normalizeCurrency_null()
 	{
-		BigDecimal actualOutput = BigDecimals.normalizeScale(null);
+		BigDecimal actualOutput = BigDecimals.normalizeCurrency(null);
 
 		assertThat(actualOutput, nullValue());
 	}
