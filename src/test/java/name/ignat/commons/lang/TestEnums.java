@@ -1,8 +1,8 @@
-package name.ignat.commons.util;
+package name.ignat.commons.lang;
 
-import static name.ignat.commons.util.TestEnums.RGBColor.BLUE;
-import static name.ignat.commons.util.TestEnums.RGBColor.GREEN;
-import static name.ignat.commons.util.TestEnums.RGBColor.RED;
+import static name.ignat.commons.lang.TestEnums.RGBColor.BLUE;
+import static name.ignat.commons.lang.TestEnums.RGBColor.GREEN;
+import static name.ignat.commons.lang.TestEnums.RGBColor.RED;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
