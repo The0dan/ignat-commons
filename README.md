@@ -43,7 +43,9 @@ else
 {
     throw new UnexpectedCaseException(value);
 }
+```
 
+```java
 switch (value)
 {
     case 1:
@@ -55,7 +57,9 @@ switch (value)
     default:
         throw new UnexpectedCaseException(value);
 }
+```
 
+```java
 if (shape instanceof Circle)
 {
     ...
