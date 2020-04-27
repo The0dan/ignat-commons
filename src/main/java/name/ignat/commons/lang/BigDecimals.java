@@ -3,6 +3,7 @@ package name.ignat.commons.lang;
 import static java.math.RoundingMode.HALF_UP;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.annotation.Nullable;
 
@@ -14,8 +15,8 @@ import javax.annotation.Nullable;
 public final class BigDecimals
 {
 	/**
-	 * Normalizes the scale of {@code bigDecimal} to 2 decimal places and {@link #HALF_UP}.  All currency {@link
-	 * BigDecimal}s should be normalized after instantiation for consistency.
+	 * Normalizes the scale of {@code bigDecimal} to 2 decimal places and {@link RoundingMode#HALF_UP}.  All currency
+	 * {@link BigDecimal}s should be normalized after instantiation for consistency.
 	 * 
 	 * @param bigDecimal the currency {@link BigDecimal} to normalize
 	 * @return the normalized {@link BigDecimal}
@@ -28,8 +29,8 @@ public final class BigDecimals
 	}
 
     /**
-     * Normalizes the scale of {@code bigDecimal} to {@code scale} decimal places and {@link #HALF_UP}.  All {@link
-     * BigDecimal}s should be normalized after instantiation for consistency.
+     * Normalizes the scale of {@code bigDecimal} to {@code scale} decimal places and {@link RoundingMode#HALF_UP}.  All
+     * {@link BigDecimal}s should be normalized after instantiation for consistency.
      * 
      * @param bigDecimal the {@link BigDecimal} to normalize
      * @param scale the scale to which to normalize

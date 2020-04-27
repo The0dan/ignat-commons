@@ -20,7 +20,7 @@ import name.ignat.commons.exception.UnexpectedException;
  * <ul>
  * <li>{@link Class#getResource(String)}</li>
  * <li>{@link com.google.common.io.Resources#getResource(String)}</li>
- * <li>{@link org.springframework.core.io.ClassPathResource}</li>
+ * <li>{@code org.springframework.core.io.ClassPathResource}</li>
  * </ul>
  * Since Ignat Commons already depends on Google Guava, it uses that option, so as not to introduce a more heavyweight
  * Spring dependency that not all clients may want.
@@ -31,12 +31,12 @@ public final class Resources
 {
 	/**
 	 * Opens a resource for reading.
+     * <p>
+     * <strong>Note:</strong> Use this instead of {@link #getResourceCautiously(String)} when you don't expect an
+     * exception and have no handling code, which is the majority of cases.
 	 * 
 	 * @param resourcePath the path to the resource, relative to the class path
 	 * @return an {@link InputStream} from which the resource may be read
-     * 
-     * @apiNote Use this instead of {@link #getResourceCautiously(String)} when you don't expect an exception and have
-     * no handling code, which is the majority of cases.
 	 */
 	public static InputStream getResource(String resourcePath)
 	{
@@ -52,11 +52,12 @@ public final class Resources
 
     /**
      * Opens a resource for reading, expecting a possible exception.
+     * <p>
+     * <strong>Note:</strong> Use this instead of {@link #getResource(String)} when you expect and want to handle an
+     * exception.
      * 
      * @param resourcePath the path to the resource, relative to the class path
      * @return an {@link InputStream} from which the resource may be read
-     * 
-     * @apiNote Use this instead of {@link #getResource(String)} when you expect and want to handle an exception.
      */
     public static InputStream getResourceCautiously(String resourcePath) throws IOException
     {
@@ -65,12 +66,12 @@ public final class Resources
 
     /**
      * Gets a {@code File} corresponding to a resource.
+     * <p>
+     * <strong>Note:</strong> Use this instead of {@link #getResourceFileCautiously(String)} when you don't expect an
+     * exception and have no handling code, which is the majority of cases.
      * 
      * @param resourcePath the path to the resource, relative to the class path
      * @return a {@link File} corresponding to the resource
-     * 
-     * @apiNote Use this instead of {@link #getResourceFileCautiously(String)} when you don't expect an exception and
-     * have no handling code, which is the majority of cases.
      */
 	public static File getResourceFile(String resourcePath)
 	{
@@ -86,11 +87,12 @@ public final class Resources
 
     /**
      * Gets a {@code File} corresponding to a resource, expecting a possible exception.
+     * <p>
+     * <strong>Note:</strong> Use this instead of {@link #getResourceFile(String)} when you expect and want to handle an
+     * exception.
      * 
      * @param resourcePath the path to the resource, relative to the class path
      * @return a {@link File} corresponding to the resource
-     * 
-     * @apiNote Use this instead of {@link #getResourceFile(String)} when you expect and want to handle an exception.
      */
     public static File getResourceFileCautiously(String resourcePath) throws URISyntaxException
     {
@@ -99,12 +101,12 @@ public final class Resources
 
     /**
      * Gets the text contents of a resource.
+     * <p>
+     * <strong>Note:</strong> Use this instead of {@link #getResourceTextCautiously(String)} when you don't expect an
+     * exception and have no handling code, which is the majority of cases.
      * 
      * @param resourcePath the path to the resource, relative to the class path
      * @return the text contents of the resource as a {@link String}
-     * 
-     * @apiNote Use this instead of {@link #getResourceTextCautiously(String)} when you don't expect an exception and
-     * have no handling code, which is the majority of cases.
      */
 	public static String getResourceText(String resourcePath)
 	{
@@ -120,11 +122,12 @@ public final class Resources
 
     /**
      * Gets the text contents of a resource, expecting a possible exception.
+     * <p>
+     * <strong>Note:</strong> Use this instead of {@link #getResourceText(String)} when you expect and want to handle an
+     * exception.
      * 
      * @param resourcePath the path to the resource, relative to the class path
      * @return the text contents of the resource as a {@link String}
-     * 
-     * @apiNote Use this instead of {@link #getResourceText(String)} when you expect and want to handle an exception.
      */
     public static String getResourceTextCautiously(String resourcePath) throws IOException
     {

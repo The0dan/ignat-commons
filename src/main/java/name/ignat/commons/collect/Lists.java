@@ -15,9 +15,9 @@ public final class Lists
      * Gets the first element of {@code list}.
      * <p>
      * Using this is slightly nicer semantically than using {@link List#get(int)} directly.
-     * 
-     * @apiNote Not null-safe because then you couldn't distinguish between a null list and a null first element.  This
-     * seems consistent with other Collections utilities.
+     * <p>
+     * <strong>Note:</strong> Not null-safe because then you couldn't distinguish between a null list and a null first
+     * element.  This seems consistent with other Collections utilities.
      * 
      * @param <T> the class of the objects in the list
      * @param list the {@code List} from which to return the first element
@@ -33,9 +33,9 @@ public final class Lists
      * Gets the last element of {@code list}.
      * <p>
      * Using this is considerably nicer semantically than using {@link List#get(int)} directly.
-     * 
-     * @apiNote Not null-safe because then you couldn't distinguish between a null list and a null last element.  This
-     * seems consistent with other Collections utilities.
+     * <p>
+     * <strong>Note:</strong> Not null-safe because then you couldn't distinguish between a null list and a null last
+     * element.  This seems consistent with other Collections utilities.
      * 
      * @param <T> the class of the objects in the list
      * @param list the {@code List} from which to return the last element
