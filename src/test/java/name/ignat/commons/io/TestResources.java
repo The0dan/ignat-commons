@@ -21,7 +21,7 @@ public class TestResources
 	{
 		int fileSize = 0;
 
-		try (InputStream fileIn = Resources.getResource("utils/SomeFile.zip"))
+		try (InputStream fileIn = Resources.getResource("io/SomeFile.zip"))
 		{
 			for (int b = fileIn.read(); b != -1; b = fileIn.read())
 			{
@@ -36,15 +36,15 @@ public class TestResources
 	public void getResource_notFound() throws IOException
 	{
 	    Exception exception = assertThrows(IllegalArgumentException.class,
-	        () -> Resources.getResource("utils/SomeOtherFile.zip"));
+	        () -> Resources.getResource("io/SomeOtherFile.zip"));
 
-	    assertThat(exception.getMessage(), is("resource utils/SomeOtherFile.zip not found."));
+	    assertThat(exception.getMessage(), is("resource io/SomeOtherFile.zip not found."));
 	}
 
 	@Test
 	public void getResourceFile() throws IOException
 	{
-		File file = Resources.getResourceFile("utils/SomeFile.zip");
+		File file = Resources.getResourceFile("io/SomeFile.zip");
 
 		assertThat(file.isFile(), equalTo(true));
 		assertThat(file.getName(), equalTo("SomeFile.zip"));
@@ -54,15 +54,15 @@ public class TestResources
 	public void getResourceFile_notFound() throws IOException
 	{
 	    Exception exception = assertThrows(IllegalArgumentException.class,
-            () -> Resources.getResourceFile("utils/SomeOtherFile.zip"));
+            () -> Resources.getResourceFile("io/SomeOtherFile.zip"));
 
-        assertThat(exception.getMessage(), is("resource utils/SomeOtherFile.zip not found."));
+        assertThat(exception.getMessage(), is("resource io/SomeOtherFile.zip not found."));
 	}
 
 	@Test
 	public void getResourceText() throws IOException
 	{
-		String contents = Resources.getResourceText("utils/SomeFile.txt");
+		String contents = Resources.getResourceText("io/SomeFile.txt");
 
 		assertThat(contents, equalTo("Hello, world!"));
 	}
@@ -71,8 +71,8 @@ public class TestResources
 	public void getResourceText_notFound() throws IOException
 	{
 	    Exception exception = assertThrows(IllegalArgumentException.class,
-            () -> Resources.getResourceText("utils/SomeOtherFile.txt"));
+            () -> Resources.getResourceText("io/SomeOtherFile.txt"));
 
-        assertThat(exception.getMessage(), is("resource utils/SomeOtherFile.txt not found."));
+        assertThat(exception.getMessage(), is("resource io/SomeOtherFile.txt not found."));
 	}
 }
