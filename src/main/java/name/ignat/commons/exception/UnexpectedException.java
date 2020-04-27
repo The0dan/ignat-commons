@@ -62,22 +62,22 @@ public class UnexpectedException extends ContextedRuntimeException
     private static final long serialVersionUID = -5807058261990164239L;
 
     public UnexpectedException()
-	{
-		super();
-	}
+    {
+        super();
+    }
 
-	public UnexpectedException(String message)
-	{
-		super(message);
-	}
+    public UnexpectedException(String message)
+    {
+        super(message);
+    }
 
-	public UnexpectedException(Throwable cause)
-	{
-		super(cause);
-	}
+    public UnexpectedException(Throwable cause)
+    {
+        super(cause);
+    }
 
-	public UnexpectedException(String message, Throwable cause)
-	{
-		super(message, cause);
-	}
+    public UnexpectedException(String message, Throwable cause)
+    {
+        super(message, cause);
+    }
 }

@@ -16,63 +16,63 @@ import org.junit.jupiter.api.Test;
  */
 public class TestResources
 {
-	@Test
-	public void getResource() throws IOException
-	{
-		int fileSize = 0;
+    @Test
+    public void getResource() throws IOException
+    {
+        int fileSize = 0;
 
-		try (InputStream fileIn = Resources.getResource("io/SomeFile.zip"))
-		{
-			for (int b = fileIn.read(); b != -1; b = fileIn.read())
-			{
-				fileSize++;
-			}
-		}
+        try (InputStream fileIn = Resources.getResource("io/SomeFile.zip"))
+        {
+            for (int b = fileIn.read(); b != -1; b = fileIn.read())
+            {
+                fileSize++;
+            }
+        }
 
-		assertThat(fileSize, equalTo(171));
-	}
+        assertThat(fileSize, equalTo(171));
+    }
 
-	@Test
-	public void getResource_notFound() throws IOException
-	{
-	    Exception exception = assertThrows(IllegalArgumentException.class,
-	        () -> Resources.getResource("io/SomeOtherFile.zip"));
+    @Test
+    public void getResource_notFound() throws IOException
+    {
+        Exception exception = assertThrows(IllegalArgumentException.class,
+            () -> Resources.getResource("io/SomeOtherFile.zip"));
 
-	    assertThat(exception.getMessage(), is("resource io/SomeOtherFile.zip not found."));
-	}
+        assertThat(exception.getMessage(), is("resource io/SomeOtherFile.zip not found."));
+    }
 
-	@Test
-	public void getResourceFile() throws IOException
-	{
-		File file = Resources.getResourceFile("io/SomeFile.zip");
+    @Test
+    public void getResourceFile() throws IOException
+    {
+        File file = Resources.getResourceFile("io/SomeFile.zip");
 
-		assertThat(file.isFile(), equalTo(true));
-		assertThat(file.getName(), equalTo("SomeFile.zip"));
-	}
+        assertThat(file.isFile(), equalTo(true));
+        assertThat(file.getName(), equalTo("SomeFile.zip"));
+    }
 
-	@Test
-	public void getResourceFile_notFound() throws IOException
-	{
-	    Exception exception = assertThrows(IllegalArgumentException.class,
+    @Test
+    public void getResourceFile_notFound() throws IOException
+    {
+        Exception exception = assertThrows(IllegalArgumentException.class,
             () -> Resources.getResourceFile("io/SomeOtherFile.zip"));
 
         assertThat(exception.getMessage(), is("resource io/SomeOtherFile.zip not found."));
-	}
+    }
 
-	@Test
-	public void getResourceText() throws IOException
-	{
-		String contents = Resources.getResourceText("io/SomeFile.txt");
+    @Test
+    public void getResourceText() throws IOException
+    {
+        String contents = Resources.getResourceText("io/SomeFile.txt");
 
-		assertThat(contents, equalTo("Hello, world!"));
-	}
+        assertThat(contents, equalTo("Hello, world!"));
+    }
 
-	@Test
-	public void getResourceText_notFound() throws IOException
-	{
-	    Exception exception = assertThrows(IllegalArgumentException.class,
+    @Test
+    public void getResourceText_notFound() throws IOException
+    {
+        Exception exception = assertThrows(IllegalArgumentException.class,
             () -> Resources.getResourceText("io/SomeOtherFile.txt"));
 
         assertThat(exception.getMessage(), is("resource io/SomeOtherFile.txt not found."));
-	}
+    }
 }

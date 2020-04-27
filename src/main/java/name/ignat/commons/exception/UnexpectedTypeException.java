@@ -42,7 +42,7 @@ public class UnexpectedTypeException extends UnexpectedException
     private static final long serialVersionUID = 6695237171051092747L;
 
     public UnexpectedTypeException(Object value)
-	{
-		super("Unexpected type: " + value.getClass());
-	}
+    {
+        super("Unexpected type: " + value.getClass());
+    }
 }

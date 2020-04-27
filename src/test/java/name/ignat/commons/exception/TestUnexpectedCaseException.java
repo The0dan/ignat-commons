@@ -11,11 +11,11 @@ import org.junit.jupiter.api.Test;
  */
 public class TestUnexpectedCaseException
 {
-	@Test
-	public void messageConstructor()
-	{
-		UnexpectedCaseException e = new UnexpectedCaseException("abc");
+    @Test
+    public void messageConstructor()
+    {
+        UnexpectedCaseException e = new UnexpectedCaseException("abc");
 
-		assertThat(e, hasProperty("message", equalTo("Unexpected case: abc")));
-	}
+        assertThat(e, hasProperty("message", equalTo("Unexpected case: abc")));
+    }
 }

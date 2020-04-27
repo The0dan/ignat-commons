@@ -49,7 +49,7 @@ public class UnexpectedCaseException extends UnexpectedException
     private static final long serialVersionUID = 321045026068030184L;
 
     public UnexpectedCaseException(Object value)
-	{
-		super("Unexpected case: " + value);
-	}
+    {
+        super("Unexpected case: " + value);
+    }
 }

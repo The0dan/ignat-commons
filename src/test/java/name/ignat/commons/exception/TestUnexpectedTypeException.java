@@ -11,11 +11,11 @@ import org.junit.jupiter.api.Test;
  */
 public class TestUnexpectedTypeException
 {
-	@Test
-	public void messageConstructor()
-	{
-		UnexpectedTypeException e = new UnexpectedTypeException("abc");
+    @Test
+    public void messageConstructor()
+    {
+        UnexpectedTypeException e = new UnexpectedTypeException("abc");
 
-		assertThat(e, hasProperty("message", equalTo("Unexpected type: class java.lang.String")));
-	}
+        assertThat(e, hasProperty("message", equalTo("Unexpected type: class java.lang.String")));
+    }
 }

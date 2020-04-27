@@ -29,26 +29,26 @@ import name.ignat.commons.exception.UnexpectedException;
  */
 public final class Resources
 {
-	/**
-	 * Opens a resource for reading.
+    /**
+     * Opens a resource for reading.
      * <p>
      * <strong>Note:</strong> Use this instead of {@link #getResourceCautiously(String)} when you don't expect an
      * exception and have no handling code, which is the majority of cases.
-	 * 
-	 * @param resourcePath the path to the resource, relative to the class path
-	 * @return an {@link InputStream} from which the resource may be read
-	 */
-	public static InputStream getResource(String resourcePath)
-	{
-		try
-		{
-			return getResourceCautiously(resourcePath);
-		}
-		catch (IOException e)
-		{
-			throw new UnexpectedException(e);
-		}
-	}
+     * 
+     * @param resourcePath the path to the resource, relative to the class path
+     * @return an {@link InputStream} from which the resource may be read
+     */
+    public static InputStream getResource(String resourcePath)
+    {
+        try
+        {
+            return getResourceCautiously(resourcePath);
+        }
+        catch (IOException e)
+        {
+            throw new UnexpectedException(e);
+        }
+    }
 
     /**
      * Opens a resource for reading, expecting a possible exception.
@@ -73,17 +73,17 @@ public final class Resources
      * @param resourcePath the path to the resource, relative to the class path
      * @return a {@link File} corresponding to the resource
      */
-	public static File getResourceFile(String resourcePath)
-	{
-		try
-		{
-			return getResourceFileCautiously(resourcePath);
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnexpectedException(e);
-		}
-	}
+    public static File getResourceFile(String resourcePath)
+    {
+        try
+        {
+            return getResourceFileCautiously(resourcePath);
+        }
+        catch (URISyntaxException e)
+        {
+            throw new UnexpectedException(e);
+        }
+    }
 
     /**
      * Gets a {@code File} corresponding to a resource, expecting a possible exception.
@@ -108,17 +108,17 @@ public final class Resources
      * @param resourcePath the path to the resource, relative to the class path
      * @return the text contents of the resource as a {@link String}
      */
-	public static String getResourceText(String resourcePath)
-	{
-		try
-		{
-		    return getResourceTextCautiously(resourcePath);
-		}
-		catch (IOException e)
-		{
-			throw new UnexpectedException(e);
-		}
-	}
+    public static String getResourceText(String resourcePath)
+    {
+        try
+        {
+            return getResourceTextCautiously(resourcePath);
+        }
+        catch (IOException e)
+        {
+            throw new UnexpectedException(e);
+        }
+    }
 
     /**
      * Gets the text contents of a resource, expecting a possible exception.
@@ -135,5 +135,5 @@ public final class Resources
             com.google.common.io.Resources.getResource(resourcePath), defaultCharset());
     }
 
-	private Resources() { }
+    private Resources() { }
 }

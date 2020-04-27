@@ -3,251 +3,251 @@
 <!-- To build the JAR, sources JAR, and javadoc JAR, run "mvn clean verify javadoc:jar" -->
 
 <project
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-		http://maven.apache.org/POM/4.0.0
-			http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://maven.apache.org/POM/4.0.0
+            http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>name.ignat</groupId>
-	<artifactId>ignat-commons</artifactId>
-	<version>1.0.0</version>
+    <groupId>name.ignat</groupId>
+    <artifactId>ignat-commons</artifactId>
+    <version>1.0.0</version>
 
-	<name>Ignat Commons</name>
-	<description>Common code that I've found myself reusing many times over the years</description>
-	<url>https://github.com/The0dan/ignat-commons</url>
-	<inceptionYear>2015</inceptionYear>
+    <name>Ignat Commons</name>
+    <description>Common code that I've found myself reusing many times over the years</description>
+    <url>https://github.com/The0dan/ignat-commons</url>
+    <inceptionYear>2015</inceptionYear>
 
-	<scm>
-		<connection>scm:git:git@github.com:The0dan/ignat-commons.git</connection>
-		<developerConnection>scm:git:git@github.com:The0dan/ignat-commons.git</developerConnection>
-		<url>git@github.com:The0dan/ignat-commons.git</url>
-	</scm>
+    <scm>
+        <connection>scm:git:git@github.com:The0dan/ignat-commons.git</connection>
+        <developerConnection>scm:git:git@github.com:The0dan/ignat-commons.git</developerConnection>
+        <url>git@github.com:The0dan/ignat-commons.git</url>
+    </scm>
 
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-	<developers>
-		<developer>
-			<name>Dan Ignat</name>
-			<email>dan[at]ignat.name</email>
-			<url>https://github.com/The0dan</url>
-			<timezone>America/Chicago</timezone>
-			<roles>
-				<role>architect</role>
-				<role>developer</role>
-				<role>owner</role>
-			</roles>
-			<properties>
-				<picUrl>https://avatars.githubusercontent.com/u/5143789</picUrl>
-			</properties>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <name>Dan Ignat</name>
+            <email>dan[at]ignat.name</email>
+            <url>https://github.com/The0dan</url>
+            <timezone>America/Chicago</timezone>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+                <role>owner</role>
+            </roles>
+            <properties>
+                <picUrl>https://avatars.githubusercontent.com/u/5143789</picUrl>
+            </properties>
+        </developer>
+    </developers>
 
-	<properties>
-		<java.version>1.8</java.version>
-		<spring.version>4.1.7.RELEASE</spring.version>
-	</properties>
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.version>4.1.7.RELEASE</spring.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
-		<dependency>
-			<groupId>commons-chain</groupId>
-			<artifactId>commons-chain</artifactId>
-			<version>1.2</version>
-		</dependency>
+        <dependency>
+            <groupId>commons-chain</groupId>
+            <artifactId>commons-chain</artifactId>
+            <version>1.2</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
 
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.2</version>
-		</dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.2</version>
+        </dependency>
 
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
-		</dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
 
-		<!--
-		****************************************************************************************************************
-		TEST SCOPE
-		****************************************************************************************************************
-		-->
+        <!--
+        ****************************************************************************************************************
+        TEST SCOPE
+        ****************************************************************************************************************
+        -->
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hamcrest</groupId>
-					<artifactId>hamcrest-core</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<version>1.3</version>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
-	<build>
+    <build>
 
-		<pluginManagement>
+        <pluginManagement>
 
-			<plugins>
+            <plugins>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
-					<configuration>
-						<fork>true</fork>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
-				</plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <fork>true</fork>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
 
-			</plugins>
+            </plugins>
 
-		</pluginManagement>
+        </pluginManagement>
 
-		<plugins>
+        <plugins>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
-			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+            </plugin>
 
-			<plugin>
-				<groupId>org.pitest</groupId>
-				<artifactId>pitest-maven</artifactId>
-				<version>1.1.5</version>
-				<configuration>
-					<targetClasses>
-						<param>name.ignat.commons.*</param>
-					</targetClasses>
-					<targetTests>
-						<param>name.ignat.commons.*</param>
-					</targetTests>
-					<excludedClasses>
-						<param>**IntTest</param>
-					</excludedClasses>
-					<avoidCallsTo>
-						<!-- Default avoided packages -->
-						<avoidCallsTo>java.util.logging</avoidCallsTo>
-						<avoidCallsTo>org.apache.log4j</avoidCallsTo>
-						<avoidCallsTo>org.slf4j</avoidCallsTo>
-						<avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
-						<!-- Custom avoided packages -->
-						<!--avoidCallsTo></avoidCallsTo-->
-					</avoidCallsTo>
-					<failWhenNoMutations>false</failWhenNoMutations>
-					<timestampedReports>false</timestampedReports>
-					<outputFormats>
-						<outputFormat>HTML</outputFormat>
-						<outputFormat>XML</outputFormat>
-					</outputFormats>
-					<!--
-						This should be set to a value between the number of physical CPU cores and the number of virtual
-						CPU cores.  (e.g. A 4-core Intel CPU with hyperthreading has 8 virtual cores.)  Henry Coles
-						(author of PIT) said the optimal value is probably closer to the number of virtual cores, but
-						that we'd have to test it out ourselves.
-					-->
-					<threads>8</threads>
-					<!--
-						Increasing timeoutFactor from default 1.25 to 100, and timeoutConstant from default 3,000 to
-						60,000, avoids having a significant number of our mutations getting killed by timeouts, which we
-						want to avoid.
-					-->
-					<timeoutFactor>100</timeoutFactor>
-					<timeoutConstant>60000</timeoutConstant>
-					<jvmArgs>
-						<!--
-							This resolves the OutOfMemoryErrors (PermGen space) we've run into during Maven PIT runs,
-							due to their requiring PermGen space right around the default max of 67 MB.  Furthermore,
-							Maven doesn't pass MAVEN_OPTS env var to the PIT execution process, so this setting is the
-							right way to increase the max PermGen size.
-						-->
-						<value>-XX:MaxPermSize=1g</value>
-						<!--
-							This is a workaround for pre-1.1 versions of EMMA that result in tons of:
-								java.net.BindException: Address already in use
-							errors in the logs.  PIT runs in a separate JVM and invokes EMMA for its first-pass test run
-							to gather baseline coverage, and this system property will not be passed in from the JVM
-							that Maven runs in.
-						-->
-						<value>-Demma.rt.control=false</value>
-					</jvmArgs>
-				</configuration>
-				<!--
-					Don't use the execution below!  Doing so will bind pitest-maven to the "test" phase, which is also
-					invoked by SureFire and Emma, so this will result in pitest-maven being run 3 times instead of just
-					once, and greatly increasing the build's running time.
-					
-					Instead, invoke PIT via its default Maven goal "org.pitest:pitest-maven:mutationCoverage", similarly
-					to how we invoke CheckStyle via the goal "checkstyle:checkstyle".
-				-->
-				<!--executions>
-					<execution>
-						<id>check</id>
-						<phase>test</phase>
-						<goals>
-							<goal>mutationCoverage</goal>
-						</goals>
-					</execution>
-				</executions-->
-			</plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.1.5</version>
+                <configuration>
+                    <targetClasses>
+                        <param>name.ignat.commons.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>name.ignat.commons.*</param>
+                    </targetTests>
+                    <excludedClasses>
+                        <param>**IntTest</param>
+                    </excludedClasses>
+                    <avoidCallsTo>
+                        <!-- Default avoided packages -->
+                        <avoidCallsTo>java.util.logging</avoidCallsTo>
+                        <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                        <avoidCallsTo>org.slf4j</avoidCallsTo>
+                        <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+                        <!-- Custom avoided packages -->
+                        <!--avoidCallsTo></avoidCallsTo-->
+                    </avoidCallsTo>
+                    <failWhenNoMutations>false</failWhenNoMutations>
+                    <timestampedReports>false</timestampedReports>
+                    <outputFormats>
+                        <outputFormat>HTML</outputFormat>
+                        <outputFormat>XML</outputFormat>
+                    </outputFormats>
+                    <!--
+                        This should be set to a value between the number of physical CPU cores and the number of virtual
+                        CPU cores.  (e.g. A 4-core Intel CPU with hyperthreading has 8 virtual cores.)  Henry Coles
+                        (author of PIT) said the optimal value is probably closer to the number of virtual cores, but
+                        that we'd have to test it out ourselves.
+                    -->
+                    <threads>8</threads>
+                    <!--
+                        Increasing timeoutFactor from default 1.25 to 100, and timeoutConstant from default 3,000 to
+                        60,000, avoids having a significant number of our mutations getting killed by timeouts, which we
+                        want to avoid.
+                    -->
+                    <timeoutFactor>100</timeoutFactor>
+                    <timeoutConstant>60000</timeoutConstant>
+                    <jvmArgs>
+                        <!--
+                            This resolves the OutOfMemoryErrors (PermGen space) we've run into during Maven PIT runs,
+                            due to their requiring PermGen space right around the default max of 67 MB.  Furthermore,
+                            Maven doesn't pass MAVEN_OPTS env var to the PIT execution process, so this setting is the
+                            right way to increase the max PermGen size.
+                        -->
+                        <value>-XX:MaxPermSize=1g</value>
+                        <!--
+                            This is a workaround for pre-1.1 versions of EMMA that result in tons of:
+                                java.net.BindException: Address already in use
+                            errors in the logs.  PIT runs in a separate JVM and invokes EMMA for its first-pass test run
+                            to gather baseline coverage, and this system property will not be passed in from the JVM
+                            that Maven runs in.
+                        -->
+                        <value>-Demma.rt.control=false</value>
+                    </jvmArgs>
+                </configuration>
+                <!--
+                    Don't use the execution below!  Doing so will bind pitest-maven to the "test" phase, which is also
+                    invoked by SureFire and Emma, so this will result in pitest-maven being run 3 times instead of just
+                    once, and greatly increasing the build's running time.
+                    
+                    Instead, invoke PIT via its default Maven goal "org.pitest:pitest-maven:mutationCoverage", similarly
+                    to how we invoke CheckStyle via the goal "checkstyle:checkstyle".
+                -->
+                <!--executions>
+                    <execution>
+                        <id>check</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions-->
+            </plugin>
 
-		</plugins>
+        </plugins>
 
-	</build>
+    </build>
 
 </project>

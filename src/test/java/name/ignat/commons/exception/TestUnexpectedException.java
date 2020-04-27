@@ -11,14 +11,14 @@ import org.junit.jupiter.api.Test;
  */
 public class TestUnexpectedException
 {
-	@Test
-	public void messageConstructor()
-	{
-		Exception e = new UnexpectedException();
+    @Test
+    public void messageConstructor()
+    {
+        Exception e = new UnexpectedException();
 
-		assertThat(e, hasProperty("message", equalTo("")));
+        assertThat(e, hasProperty("message", equalTo("")));
         assertThat(e, hasProperty("cause", equalTo(null)));
-	}
+    }
 
     @Test
     public void messageConstructor2()

@@ -14,19 +14,19 @@ import javax.annotation.Nullable;
  */
 public final class BigDecimals
 {
-	/**
-	 * Normalizes the scale of {@code bigDecimal} to 2 decimal places and {@link RoundingMode#HALF_UP}.  All currency
-	 * {@link BigDecimal}s should be normalized after instantiation for consistency.
-	 * 
-	 * @param bigDecimal the currency {@link BigDecimal} to normalize
-	 * @return the normalized {@link BigDecimal}
+    /**
+     * Normalizes the scale of {@code bigDecimal} to 2 decimal places and {@link RoundingMode#HALF_UP}.  All currency
+     * {@link BigDecimal}s should be normalized after instantiation for consistency.
+     * 
+     * @param bigDecimal the currency {@link BigDecimal} to normalize
+     * @return the normalized {@link BigDecimal}
      * 
      * @see BigDecimal#setScale(int, java.math.RoundingMode)
-	 */
-	public static BigDecimal normalizeCurrency(@Nullable BigDecimal bigDecimal)
-	{
-		return normalize(bigDecimal, 2);
-	}
+     */
+    public static BigDecimal normalizeCurrency(@Nullable BigDecimal bigDecimal)
+    {
+        return normalize(bigDecimal, 2);
+    }
 
     /**
      * Normalizes the scale of {@code bigDecimal} to {@code scale} decimal places and {@link RoundingMode#HALF_UP}.  All
