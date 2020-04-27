@@ -1,16 +1,17 @@
 package name.ignat.commons.lang;
 
+import static java.lang.System.lineSeparator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import name.ignat.commons.lang.Objects;
 
 /**
  * @author Dan Ignat
@@ -63,5 +64,34 @@ public class TestObjects
         boolean result = Objects.equalsAny(object, candidates == null ? null : candidates.toArray(new Object[0]));
 
         assertThat(result, is(expectedResult));
+    }
+
+    private static Stream<Arguments> toLinesStringCases()
+    {
+        String sep = lineSeparator();
+
+        return Stream.of(
+            Arguments.of(List.of(), ""),
+            Arguments.of(List.of("hello"), "hello"),
+            Arguments.of(List.of("hello", "world"), "hello" + sep + "world"),
+            Arguments.of(List.of(" hello ", " world "), " hello " + sep + " world "),
+            Arguments.of(List.of("hello" + sep + "again", "world"), "hello" + sep + "again" + sep + "world"),
+            Arguments.of(List.of(1, 2), "1" + sep + "2")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("toLinesStringCases")
+    public void toLinesString(List<Object> objects, String expectedOutput)
+    {
+        String output = Objects.toLinesString(objects);
+
+        assertThat(output, is(expectedOutput));
+    }
+
+    @Test
+    public void toLinesString_null()
+    {
+        assertThrows(NullPointerException.class, () -> Objects.toLinesString(null));
     }
 }
