@@ -82,7 +82,7 @@ else
 
 ## Utilities
 
-General utilities and enhancements to *Google Guava* and *Apache Commons* utilities.
+General utilities, as well as some enhancements to utilities in the JDK, *Google Guava*, and *Apache Commons*.
 
 ### Lists
 
