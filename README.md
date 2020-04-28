@@ -5,7 +5,13 @@
 
 # Ignat Commons
 
-Ignat Commons is common code that I've found myself reusing many times over the years.
+Ignat Commons is Core Java common code that I've found myself reusing many times over the years.
+
+## Versions
+
+The latest release is [2.0.0](https://search.maven.org/artifact/name.ignat/ignat-commons/2.0.0/jar), available in the Maven Central artifact repository, retrievable via all Java dependency managers.
+
+See [Versions](docs/Versions.md) for a release history.
 
 ## Exceptions
 
