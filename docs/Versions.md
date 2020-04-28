@@ -55,10 +55,8 @@ implementation("name.ignat:ignat-commons:2.0.0")
 - Removed `CollectionUtils` (bb02e1b)
     - Its only method has since been added to `org.apache.commons.collections4.CollectionUtils`
 - Removed `name.ignat.commons.chain` classes (840019c)
-    - The Apache Commons Chain library seems very old and unmaintained (last release was in 2008), and I haven't found
-    myself using it as much in recent years, instead preferring situation-specific collaborating classes
-    - If I discover new use cases for it, and there isn't a better alternative out there somewhere, I will revive this
-    type-safe implementation into a separate ignat-chain library and modernize it
+    - The Apache Commons Chain library seems very old and unmaintained (last release was in 2008), and I haven't found myself using it as much in recent years, instead preferring situation-specific collaborating classes
+    - If I discover new use cases for it, and there isn't a better alternative out there somewhere, I will revive this type-safe implementation into a separate *ignat-chain* library and modernize it
 - Drastically improved unit tests for quality and comprehensiveness
 - Drastically improved Javadocs for quality and comprehensiveness
 
