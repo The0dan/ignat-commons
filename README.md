@@ -13,6 +13,12 @@ The latest release is [2.0.0](https://search.maven.org/artifact/name.ignat/ignat
 
 See [Versions](docs/Versions.md) for a release history.
 
+## Dependencies
+
+Currently the only dependencies are on *Google Guava* and *Apache Commons Lang3*, both `implementation`-scoped.  These two libraries are ubiquitous, and most projects likely already use them.  Ignat Commons has been tested against both recent and the earliest versions of these two libraries, and has left their version ranges wide open, so as to defer version resolution to client projects per their specific needs.
+
+Care has been taken to avoid other dependencies, such as Spring, as not all client projects may want them on their classpath.
+
 ## Exceptions
 
 ### `UnexpectedException`
