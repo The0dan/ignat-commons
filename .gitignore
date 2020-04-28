@@ -1,7 +1,12 @@
+# Gradle dirs
 /.gradle/
-/.settings/
-/bin/
 /build/
 
+# Eclipse files/dirs
+/.settings/
+/bin/
 /.classpath
 /.project
+
+# Eclipse GFM Viewer plugin
+*.md.html
